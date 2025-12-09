@@ -7,28 +7,34 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HelloController {
+	
+	@GetMapping("/")
+	public String hompage() {
+		return "index";
+	}
+	
+	@GetMapping("/hello")
+	public String sayHello() {
+		return "hello";   //hello is logical viewname
+		
+	}
+	
+	@GetMapping("/welcome")
+	public ModelAndView sayWelcome() {
+		String msg="welcome message from controller";
+		return new ModelAndView("welcome","message",msg);   //hello is logical viewname
+		
+	}
+	
+	@GetMapping("/test")
+	public String testdata(Model mymodel) {
+		mymodel.addAttribute("name","Kishori");
+		mymodel.addAttribute("email","kkk@gmsil.com");
+		return "testdata";  
+		
+	}
+	
+	
+	
 
-    @GetMapping("/")
-    public String home() {
-        return "hello"; // or "welcome" or "index" depending on which JSP you want
-    }
-
-    @GetMapping("/hello")
-    public String sayHello() {
-        return "hello";
-    }
-
-    @GetMapping("/welcome")
-    public ModelAndView sayWelcome() {
-        String msg = "This is welcome message from controller";
-        return new ModelAndView("welcome", "message", msg);
-    }
-
-    @GetMapping("/testdata")
-    public String testdata(Model model) {
-        model.addAttribute("name", "Dikshita");
-        model.addAttribute("email", "dikshussingh@gmail.com");
-        return "testdata";
-    }
 }
-

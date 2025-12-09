@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-     ${name}
-     ${email}
+<a href="login/loginuser">Login to the system</a>
 </body>
 </html>
